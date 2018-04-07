@@ -1,0 +1,100 @@
+/*店铺信息*/
+.store-avatar {position: absolute;margin: 0.5rem;}
+.nctouch-main-layout .store-avatar img {width:3.5rem;height:3.5rem;}
+.detail-item {padding: 0.6rem 0.4rem 0.6rem 0;margin-left: 0.4rem;display: block;position: relative;z-index: 1;}
+.detail-item .item-name {position: absolute; z-index: 1; top: 0.6rem; display: block; width: 1.8rem; height: 0.9rem; line-height: 0.9rem; font-size: 0.52rem; text-align: left; color: #888888; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.detail-item .item-con {display: block;margin: 0 1.4rem 0 1.8rem;color: #888888;font-size: 0.52rem;line-height: 0.9rem;}
+.detail-item .item-con dl {display: block;line-height: 0.9rem;}
+.detail-item .item-con dl dt, .detail-item .item-con dl dd {font-size: 0.6rem;height: 0.9rem;color: #232326;word-break: break-all;word-wrap: break-word;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.detail-item .item-more {position: absolute;opacity: 0.65;top: 0.6rem;right: 0.5rem;display: block;width: 0.9rem;height: 0.9rem;background-image: url(../images/more_b.png);background-repeat: no-repeat;background-position: 50% 50%;background-size: cover;}
+.discount {width: 90%;position: relative;overflow: hidden;}
+.discount:last-child {margin-bottom: 0}
+.discount .discount-text {position: absolute;z-index: 1;top: 0;display: block;width: 2.5rem;height: 0.9rem;line-height: 0.9rem;font-size: 0.45rem;text-align: left;color: #888888;white-space: nowrap;overflow: hidden;}
+.discount .discount-address {display: block;margin: 0 0 0 2.7rem;font-size: 0.45rem;line-height: 0.9rem;height: 0.9rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.detail-item02 {padding: 0.4rem 0.1rem 0.4rem 0;display: block;position: relative;z-index: 1;margin-left: 4.5rem;}
+.discount .no-price {font-weight: 600;color: #f23030}
+.discount .discount-time {display: block;margin: 0 0 0 2.7rem;font-size: 0.45rem;line-height: 0.9rem;height: 0.9rem;overflow: hidden;color: #232326}
+.discount .discount-time em {font-size: 0.52rem;margin: 0;}
+
+/*领取优惠券*/
+.detail-item .item-con dl dt .detail-coupon {overflow: hidden;width: 100%;}
+.detail-item .item-con dl dt .detail-coupon li {float: left;margin-right: 0.7rem;position: relative;}
+.detail-item .item-con dl dt .detail-coupon li .coupon-name {line-height: 0.9rem;height: 0.9rem;padding: 0 0.1rem;background: #f23030;color: #fff;font-size: 0.48rem;display: block;margin-left: 0.2rem;}
+.detail-item .item-con dl dt .detail-coupon li .coupon {width: 0.2rem;height: 0.9rem;background: url(../images/coupon-left.png) no-repeat;background-position: 50% 50%;background-size: cover;position: absolute;}
+.detail-item .item-con dl dt .detail-coupon li .coupon-right {background: url(../images/coupon-right.png) no-repeat;background-position: 50% 50%;background-size: cover;right: -0.2rem;top: 0}
+
+/*公用领券*/
+.mask-coupons {background: #f8f8f8;}
+.coupons-options {background: #f8f8f8;position: relative;z-index: 1;width: 100%;height: 13rem;display: block;overflow: hidden;}
+.coupons-options .coupons-content {display: block;width: 100%;height: 11.3rem;overflow: hidden;}
+.coupons-options h4 {padding: 0.4rem;line-height: 0.9rem;height: 0.9rem;color: #232326;font-size: 0.6rem;}
+.coupons-options .coupons-content ul {padding: 0 0.4rem;overflow: hidden;}
+.coupons-options .coupons-content ul .coupons-item {margin-bottom: 0.7rem;overflow: hidden;}
+.coupons-options .coupons-content ul .coupons-item a {display: block;margin-left: 0.2rem;height: 4rem;}
+.coupons-item .item .item-left {float: left;width: 40%;height: 4rem;background: linear-gradient(to right, #6393d0, #6a79d6);color: #fff;position: relative;z-index: 1}
+.coupons-item .item .item-left .decorate {display: block;width: 0.2rem;
+height: 4rem;background: url(../images/decorate.png) no-repeat;background-position: 50% 50%;background-size: cover;position: absolute;top: 0;left: -0.2rem;}
+.coupons-item .item .item-left .price {line-height: 1.3rem;height: 1.3rem;overflow: hidden;text-align: left;margin-top: 0.9rem;text-align: center;}
+.coupons-item .item .item-left .price b {font-size: 0.6rem;ont-weight: bold;}
+.coupons-item .item .item-left .price em {font-size: 1.2rem;font-family: arial;font-weight: 600;margin-left: 0.2rem;}
+.coupons-item .item .item-left .condition {line-height: 0.9rem;height: 0.9rem;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+font-size: 0.48rem;text-align: center;padding: 0 0.2rem;}
+.coupons-item .item .item-right {float: right;width: 60%;height: 4rem;background: #fff;border: solid #eee;border-width: 0.05rem 0.05rem 0.05rem 0;border-top-right-radius: 0.3rem;border-bottom-right-radius: 0.3rem;box-sizing: border-box;padding: 0.4rem 0.3rem;position: relative;overflow: hidden;}
+.coupons-item .item .item-right .coupons-name {line-height: 0.9rem;overflow: hidden;color: #666;font-size: 0.52rem;}
+.coupons-item .item .item-right .coupons-name i {margin-right: 0.2rem;display: inline-block;padding: 0 0.2rem;background: #6292d0;border-radius: 0.1rem;color: #fff;text-align: center;line-height: 0.8rem;font-size: 0.44rem}
+.coupons-item .item .item-right .coupons-text {overflow: hidden;width: 100%;height: 1rem;margin-top: 0.1rem;}
+.coupons-item .item .item-right .coupons-text .time {float: left;font-size: 0.48rem;color: #848689;line-height: 1rem;}
+.coupons-item .item .item-right .coupons-text .goto-receive {float: right;padding: 0 0.34rem;line-height: 0.9rem;border: 0.05rem solid #6d9ad0;border-radius: 10rem;color: #6d9ad0;text-align: center;font-size: 0.48rem;box-sizing: border-box;}
+
+/*商品列表区域*/
+.nctouch-main-layout {display: block;margin-top: 2rem;background-color: #F0F0F0;}
+/*商品列表和*/
+.list .goods-secrch-list {display: block;}
+.list .goods-secrch-list a {display: block;color: #111;}
+.list .goods-secrch-list .goods-item {background-color: #FFF;display: block;clear: both;position: relative;z-index: auot;}
+.list .goods-secrch-list .goods-pic {display: block;width: 4.62rem;height: 4.62rem;padding: 0.38rem;position: absolute;z-index: 1;top: 0;left: 0;}
+.list .goods-secrch-list .goods-pic a {width: 100%;height: 100%;}
+.list .goods-secrch-list .goods-pic img {width: 100%;height: 100%;}
+.list .goods-secrch-list .goods-info {display: block;height: 4.85rem;padding: 0.38rem 0.38rem 0 0;margin-left: 5.38rem;border-bottom: solid 0.05rem #EEE;}
+.list .goods-secrch-list .goods-name {display: block;height: 2.4rem;overflow: hidden;}
+.list .goods-secrch-list .goods-name h4 {font-size: 0.55rem;line-height: 0.8rem;height: 1.6rem;overflow: hidden;}
+.list .goods-secrch-list .goods-name h6 {font-size: 0.5rem;color: #999;line-height: 0.9rem;height: 0.9rem;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.list .goods-secrch-list .goods-sale {display: block;height: 0.9rem;padding: 0.2rem 0;overflow: hidden;}
+.list .goods-secrch-list .goods-price {color: #EC5464;font-size: 0.6rem;line-height: 0.9rem;display: block;float: left;}
+.list .goods-secrch-list .goods-price em {font-size: 0.8rem;line-height: 0.9rem;vertical-align: top;display: inline-block;}
+.list .goods-secrch-list .goods-assist {display: block;height: 1rem;padding-bottom: 0.2rem;overflow: hidden;}
+.list .goods-secrch-list .goods-sold {font-size: 0.55rem;line-height: 1rem;color: #999;display: block;float: left;width: 40%;height: 1rem;}
+.list .goods-secrch-list .goods-sold em {color: #000;vertical-align: middle;font-weight: 600;}
+.list .goods-secrch-list .btn-share{position:absolute; float: right; bottom:0.5rem; right:0.5rem;}
+.list .goods-secrch-list .btn-share i{display: block; width: 3.2rem; height: 1.2rem;line-height: 1.2rem; color: #fff; text-align: center;font-size: 0.52rem; background: #ED5564; border-radius: 0.15rem;}
+
+
+/*页内下部滑入遮罩*/
+.nctouch-bottom-mask {position: fixed;z-index: 20;top: 0;left: 0;right: 0;display: block;}
+.nctouch-bottom-mask-bg {display: block;position: absolute;z-index: 21;top: 0;left: 0;right: 0;bottom: 0;background: rgba(0,0,0,0.65);}
+.nctouch-bottom-mask-block {display: block;position: absolute;z-index: 22;bottom: 0;left: 0;right: 0;min-height: 12rem;background: #FFF;}
+.nctouch-bottom-mask.up {display: block;bottom: 0;animation: optionBlockUp 0.5s ease-in-out;-webkit-animation: optionBlockUp 0.5s ease-in-out;}
+@keyframes optionBlockUp {
+	from {display: none;bottom:-100%;}
+	to {display: block;bottom:0;}
+}
+@-webkit-keyframes optionBlockUp {
+	from {display: none;bottom:-100%;}
+	to {display: block;bottom:0;}
+}
+.nctouch-bottom-mask.down {animation: optionBlockDown 0.5s ease-in-out;-webkit-animation: optionBlockDown 0.5s ease-in-out;}
+@keyframes optionBlockDown {
+	from {display: block;bottom:0;}
+	to {display: none;bottom:-100%;}
+}
+@-webkit-keyframes optionBlockDown {
+	from {display: block;bottom:0;opacity: 1;}
+	to {display: none;bottom:-100%;opacity: 0;}
+}
+.nctouch-bottom-mask-top {position: relative;z-index: 1;display: block;padding: 0.5rem;border-bottom: solid 0.05rem #EEE;}
+.nctouch-bottom-mask-top .nctouch-bottom-mask-close {display: block;width: 100%;height: 1rem;text-align: center;line-height: 1rem;color: #888888;font-size: 0.64rem;overflow: hidden;position: relative;z-index: 1}
+.nctouch-bottom-mask-top .nctouch-bottom-mask-close i {display: block;width: 0.48rem;height: 0.48rem;background: url(../images/error.png) no-repeat;background-position: 50% 50%;background-size: cover;position: absolute;top: 0.25rem;right: 0;opacity: 0.4}
+
+
+
+

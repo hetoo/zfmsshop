@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1"/>
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>积分中心</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/integral.css">
+<style>
+.s-dialog-wrapper{margin-left:-5.8rem !important;top:38% !important;}
+*,*:after,*:before{outline:none}
+</style>
+</head>
+<body>
+<header id="header" class="nctouch-product-header fixed">
+<div class="header-wrap">
+  <div class="header-l">
+    <a href="javascript:history.go(-1)"><i class="back"></i></a>
+  </div>
+  <div class="header-title">
+    <h1>积分中心</h1>
+  </div>
+  <div class="header-r">
+    <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+  </div>
+</div>
+<div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车</a><sup></sup></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a><sup></sup></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="integral-part mb20" id="points_body">
+  <div class="integral-01" id="access_info"></div>
+  <ul class="integral-data">
+    <li><a href="member/pointslog_list.html"><h1 data_type="point">0</h1><h2>我的积分</h2></a></li>
+    <li><a href="member/voucher_list.html"><h1 data_type="voucher">0</h1><h2>可用代金券</h2></a></li>
+    <li><a href="member/redpacket_list.html"><h1 data_type="redpacket">0</h1><h2>可用红包</h2></a></li>
+  </ul>
+  <div class="clear"></div>
+</div>
+<footer id="footer" class="bottom"></footer>
+</body>
+<script type="text/html" id="home_body">
+<% var voucher_list = voucher; %>
+<% var pointsprod_list = pointsprod; %>
+<% var redpacket_list = redpacket; %>
+<% if(voucher_list.length > 0 || pointsprod_list.length > 0 || redpacket_list.length > 0){ %>
+  <% if(voucher_list.length > 0){ %>
+  <div class="integral-02">
+    <a href="point_list.voucher.html" class="top-link"><img src="../images/integral/daijinquan.png"/></a>
+    <ul class="integral-list">
+    <% var c=voucher_list.length;%>
+    <%for(i=0;i<c;i++){%>
+      <li voucher_id="<%=voucher_list[i].voucher_t_id%>" voucher_t_price="<%=voucher_list[i].voucher_t_price%>" voucher_t_limit="<%=voucher_list[i].voucher_t_limit%>" voucher_t_end_date="<%=voucher_list[i].voucher_t_end_date%>" voucher_t_points="<%=voucher_list[i].voucher_t_points%>" voucher_t_giveout="<%=voucher_list[i].voucher_t_giveout%>" voucher_t_eachlimit="<%=voucher_list[i].voucher_t_eachlimit%>" voucher_t_total="<%=voucher_list[i].voucher_t_total%>" voucher_t_mgradelimit="<%=voucher_list[i].voucher_t_mgradelimit%>">
+        <div class="top-title">
+          <h1 class="fl"><b><%=voucher_list[i].voucher_t_storename%></b>&nbsp;&nbsp;<%=voucher_list[i].voucher_t_sc_name%></h1>
+          <% if(voucher_list[i].voucher_t_mgradelimit > 0){ %>
+          <h2 class="fr"><i class="red-word">等级要求</i>&nbsp;<span class="level">Lv.<b><%=voucher_list[i].voucher_t_mgradelimit%></b></span></h2>
+          <% } %>
+        </div>
+        <div class="top-content">
+          <img class="fl" src="<%=voucher_list[i].voucher_t_customimg%>"/>
+          <div class="fl">
+            <span class="red-word">&yen;<b><%=voucher_list[i].voucher_t_price%></b></span>
+            <span class="red-word">购物满<%=voucher_list[i].voucher_t_limit%>元可用</span>
+            <span class="gray-word">有效期至<%=voucher_list[i].voucher_t_end_date%></span>
+            <span class="red-word" style="font-size:0.7rem">需<%=voucher_list[i].voucher_t_points%>积分</span>
+            <span class="gray-word"><%=voucher_list[i].voucher_t_giveout%>人已兑换</span>
+          </div>
+          <a class="integral-more get_voucher" href="javascript:void(0);"></a>
+        </div>
+      </li>
+    <%}%>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <% } %>
+  <% if(pointsprod_list.length > 0){ %>
+  <div class="integral-02">
+    <a href="point_list.pgoods.html" class="top-link"><img src="../images/integral/lipin.png"/></a>
+    <ul class="integral-list">
+      <% var c=pointsprod_list.length; %>
+      <%for(i=0;i<c;i++){%>
+      <li>
+        <a href="points_detial.html?pgoods_id=<%=pointsprod_list[i].pgoods_id%>">
+        <div class="top-content">
+          <img class="fl" src="<%=pointsprod_list[i].pgoods_image%>" alt=""/>
+          <div class="fl">
+            <span class="black-word"><strong><%=pointsprod_list[i].pgoods_name%></strong></span>
+            <span class="gray-word line-t" style="margin-top:0.6rem">&yen;<b style="font-weight:normal"><%=pointsprod_list[i].pgoods_price%></b></span>
+            <span class="red-word" style="font-size:0.7rem;margin-top:0.4rem">需<%=pointsprod_list[i].pgoods_points%>积分</span>
+          </div>
+          <% if(pointsprod_list[i].pgoods_limitmgrade > 0){ %>
+          <div class="level-b"><i class="red-word">等级要求</i>&nbsp;<span class="level">Lv.<b><%=pointsprod_list[i].pgoods_limitmgrade%></b></span></div>
+          <% } %>
+        </div>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <% } %>
+  <% if(redpacket_list.length > 0){ %>
+  <div class="integral-02">
+    <a href="point_list.redpaket.html" class="top-link"><img src="../images/integral/hongbao.png"/></a>
+    <ul class="integral-list">
+      <% var c=redpacket_list.length;%>
+      <%for(i=0;i<c;i++){%>
+      <li redpackte_id="<%=redpacket_list[i].rpacket_t_id%>" rpacket_t_price="<%=redpacket_list[i].rpacket_t_price%>" rpacket_t_limit="<%=redpacket_list[i].rpacket_t_limit%>" rpacket_t_end_date="<%=redpacket_list[i].rpacket_t_end_date%>" rpacket_t_points="<%=redpacket_list[i].rpacket_t_points%>" rpacket_t_giveout="<%=redpacket_list[i].rpacket_t_giveout%>" rpacket_t_eachlimit="<%=redpacket_list[i].rpacket_t_eachlimit%>" rpacket_t_total="<%=redpacket_list[i].rpacket_t_total%>" rpacket_t_mgradelimit="<%=redpacket_list[i].rpacket_t_mgradelimit%>">
+        <div class="top-title">
+          <h1 class="fl"><b><%=redpacket_list[i].rpacket_t_title%></b></h1>
+          <% if(redpacket_list[i].rpacket_t_mgradelimit > 0){ %>
+          <h2 class="fr"><i class="red-word">等级要求</i>&nbsp;<span class="level">Lv.<b><%=redpacket_list[i].rpacket_t_mgradelimit%></b></span></h2>
+          <% } %>
+        </div>
+        <div class="top-content">
+          <img class="fl" src="<%=redpacket_list[i].rpacket_t_customimg_url%>"/>
+          <div class="fl">
+            <span class="red-word">&yen;<b><%=redpacket_list[i].rpacket_t_price%></b></span>
+            <span class="red-word">购物满<%=redpacket_list[i].rpacket_t_limit%>元可用</span>
+            <span class="gray-word">有效期至<%=redpacket_list[i].rpacket_t_end_date%></span>
+            <span class="red-word" style="font-size:0.7rem">需<%=redpacket_list[i].rpacket_t_points%>积分</span>
+            <span class="gray-word"><%=redpacket_list[i].rpacket_t_giveout%>人已兑换</span>
+          </div>
+          <a class="integral-more get_redpacket" href="javascript:void(0);"></a>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <% } %>
+<% }else{ %>
+  <div class="integral-02">
+    <div class="nctouch-norecord order" style="margin:0 0 0 -5rem;">
+      <div class="norecord-ico"><i></i></div>
+      <dl>
+        <dt>暂时没有可兑换产品</dt>
+        <dd>可以去看看哪些想要买的</dd>
+      </dl>
+      <a href="../index.html" class="btn">随便逛逛</a>
+    </div>
+  </div>
+<% } %>  
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../js/tmpl/points_shop.js"></script>
+</html>

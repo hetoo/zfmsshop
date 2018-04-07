@@ -1,0 +1,336 @@
+/* =====================================================    */
+/* 商城门店样式表									*/
+/* Author:			yueying									*/
+/* Create Date:		2017-5-22								*/
+/* =====================================================    */
+
+
+/**/
+.head-img-wrap{ width:1200px; height:350px; margin:10px auto;  }
+.head-img-wrap img{ width:1200px; height:350px;}
+.list_item_box{margin: 15px auto 0;width: 1200px;}
+.list_item_box .title span{color: #666;display: block;font-size: 16px; margin-left: 10px;}
+.list_item_box .title  {border-bottom: 1px solid #ddd;color: #999;display: block;font-size: 14px;height: 20px;margin: 18px auto 2px;padding-bottom: 10px;width:1200px;}
+.list_item_box .list_item{ width:1250px; display: inline-block;}
+.list_item_box .list_item li{ padding:2px; margin:10px 25px 0 0; cursor:pointer; width:214px; height:auto; border:#e5e5e5 solid 1px; float:left;-webkit-transition:.3s ease-in;-o-transition:.3s ease-in;transition:.3s ease-in}
+.list_item_box .list_item li:hover{transition: box-shadow .2s ease-in; box-shadow:0 2px 8px 0 rgba(0,0,0,.15);-moz-box-shadow:0 2px 8px 0 rgba(0,0,0,.15);-ms-box-shadow:0 2px 8px 0 rgba(0,0,0,.15);-o-box-shadow:0 2px 8px 0 rgba(0,0,0,.15);-webkit-box-shadow:0 2px 8px 0 rgba(0,0,0,.15); z-index:99}
+.list_item_box .list_item .item_list_img{ display:block; width:214px; height:214px;}
+.list_item_box .list_item .item_list_goodsname{ width:194px; padding:4px 10px}
+.list_item_box .list_item .item_list_goodsname span{ display:block;height:20px; overflow:hidden; color:#666; font-weight:normal}
+.list_item_box .list_item .item_list_goodsname span:hover{ color:#f50}
+.list_item_box .list_item .item_list_goodsname div{ clear:both;height:20px; margin:6px 0;}
+.list_item_box .list_item .item_list_goodsname div span{ font-size:12px;}
+.list_item_box .list_item .item_list_goodsname div span.goods-price{ font-size:14px; color:#c00;}
+.list_item_box .list_item .item_list_goodsname div span.goods-sales{ font-size:13px; font-weight:200;}
+
+.list_item .shopping-act { text-align:center;}
+.list_item .shopping-act a.shopping-act-btn {background-color:#ed5564;border-radius: 2px;color: #fff;display: inline-block;font-size: 12px;height: 20px;
+line-height: 20px;padding: 4px 8px;text-align: center;margin:2px 2px 10px 2px;}
+.list_item .shopping-act a.shopping-act-btn i {background:url(../images/cart.png) no-repeat 0 0;display: inline-block;height: 16px;margin-right: 8px;vertical-align: middle;width: 18px;}
+.list_item .shopping-act a.shopping-act-btn:hover {background-color:#ed5564;color: #fff;text-decoration: none;}
+
+/*公用领券*/
+
+.coupons-options {background: #f8f8f8; float:right;position: relative;z-index: 1;width:480px;height:310px;display: block;overflow: hidden;}
+.coupons-options .coupons-content {display: block;width:473px;overflow: hidden;}
+.coupons-options h4 {padding:10px;line-height: 0.9rem;height: 0.9rem;color: #232326;font-size:14px;}
+.coupons-options .coupons-content ul {padding: 0 0.4rem;overflow: hidden;}
+.coupons-options .coupons-content ul .coupons-item {margin-bottom: 0.7rem;overflow: hidden;}
+.coupons-options .coupons-content ul .coupons-item a {display: block;margin-left:10px;height: 80px;}
+.coupons-item .item .item-left {float: left;width:150px;height:80px;background: linear-gradient(to right, #6393d0, #6a79d6);color: #fff;position: relative;z-index: 1}
+.coupons-item .item .item-left .decorate {display: block;width:5px;height:80px;background: url(../images/decorate.png) no-repeat;background-position: 50% 50%;background-size: cover;position: absolute;top: 0;left: -0.2rem;}
+.coupons-item .item .item-left .price {line-height: 1.3rem;height: 1.3rem;overflow: hidden;text-align: left;margin-top: 0.9rem;margin-left: 0.8rem}
+.coupons-item .item .item-left .price b {font-size:12px;ont-weight: bold;}
+.coupons-item .item .item-left .price em {font-size: 25px;font-family: arial;font-weight: 600;margin-left: 0.2rem;}
+.coupons-item .item .item-left .condition {line-height:24px;height:25px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+font-size:12px;text-align: center;padding: 0 5px;}
+.coupons-item .item .item-right {
+float: right;width:300px;height:80px;background: #fff;border: solid #eee;border-width: 0.05rem 0.05rem 0.05rem 0;border-top-right-radius: 0.3rem;border-bottom-right-radius: 0.3rem;box-sizing: border-box;padding: 0.4rem 0.3rem;
+position: relative;overflow: hidden;}
+.coupons-item .item .item-right .coupons-name {line-height: 12px;height: 30px;overflow: hidden;color: #666;font-size: 12px;}
+.coupons-item .item .item-right .coupons-name i {margin-right: 10px;display: inline-block;padding: 0 5px;background: #6292d0;border-radius:5px;color: #fff;text-align: center;line-height:25px;font-size:12px;}
+.coupons-item .item .item-right .coupons-text {overflow: hidden;width: 100%;height:25px;margin-top:10px;}
+.coupons-item .item .item-right .coupons-text .time {float: left;font-size: 12px;color: #848689;line-height:24px;}
+.coupons-item .item .item-right .coupons-text .goto-receive {float: right;padding: 0 5px;border: 1px solid #6d9ad0;border-radius: 10rem;color: #6d9ad0;text-align: center;font-size:12px;box-sizing: border-box;}
+
+.basic-box{ width:1200px; margin:0 auto; height:140px;}
+
+.basic-info{ border:5px solid #f8f8f8; width:1190px; height:120px; float:left;   }
+
+.shop-img,.shop-img img{ width:90px; height:90px; display:block;  }
+
+.shop-img{ padding:10px; float:left;  }
+
+.basic-info .shop-name {
+    font-size: 22px;
+    line-height: 33px; margin-top:10px; color:#282828; margin-bottom:5px;
+
+}
+
+.shop-info{float:left; width:400px; margin-left:10px;  }
+
+.basic-info .del-info{ float:left;  color: #666;font-size: 14px;margin-bottom:5px;  }
+
+.basic-info .del-info dt{ float:left;    height: 25px;
+    line-height: 25px;  }
+.basic-info .del-info dt i{ margin-right:10px;  }
+.basic-info .del-info dd{ font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:300px; }
+
+.basic-info .po{ position:relative;  }
+.basic-info .nc-coupon-btn {
+    background:url(../images/cart-coupon-icons02.png) no-repeat 0 0;
+    display: block;
+    height: 24px;
+    line-height: 99em;
+    overflow: hidden;
+    width: 80px;
+}
+div.promotion-tips {
+	margin: 10px 0 0;
+	display: none;
+	padding: 10px 14px 10px 10px;
+	width: 395px;
+	z-index: 30;
+	box-shadow: 0 0 2px 2px #EEE;
+	border: 1px solid #e4393c;
+	background: none repeat scroll 0 0 #FFF;
+	position: absolute;
+	left:84px;
+	text-align: left
+}
+div.promotion-ctips .promotion-tit {
+	width: 80px;
+	height: 36px;
+	line-height: 99em;
+	top: -36px; left:-1px;
+	overflow: hidden;
+	border: none; cursor:pointer;
+	background: url(../images/cart-coupon-icons02.png) 0 -34px no-repeat; position: absolute;
+}
+div.promotion-ctips .promotion-tit b {
+	display: none
+}
+
+.p-coupon-item .coupon-price {
+	position: relative;
+	height: 29px;
+	line-height: 29px;
+	width: 54px;
+	float: left;
+	font-size: 0;
+	margin: 2px 10px 0 0;
+	border: solid #f9d2d3;
+	border-width: 1px 0;
+	text-align: center;
+	padding: 0 2px
+}
+.p-coupon-item .coupon-price i {
+	display: block;
+	position: absolute;
+	height: 31px;
+	width: 3px;
+	top: -1px;
+	overflow: hidden;
+	background: url(../images/cart-coupon-icons02.png) no-repeat #fff
+}
+.p-coupon-item .coupon-price i.i1 {
+	left: 0;
+	background-position: -26px -79px
+}
+.p-coupon-item .coupon-price i.i2 {
+	right: 0;
+	_right: -1px;
+	background-position: -39px -79px
+}
+.p-coupon-item .coupon-price .txt {
+	font-size: 12px;
+	color: #e4393c;
+	font-family: verdana;
+	font-weight: 700
+}
+.p-coupon-item .coupon-msg {
+	float: left;
+	width: 200px;
+	line-height: 18px;
+	font-weight: 400
+}
+.p-coupon-item .coupon-opbtns {
+	float: left
+}
+
+
+.p-coupon-item .coupon-msg {
+	float: left;
+	width: 260px;
+	line-height: 18px;
+	font-weight: 400;font-size:12px;
+}
+
+
+.p-coupon-item .coupon-msg .ftx-03 {
+    cursor: pointer;
+    float: left;
+    max-width:200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;color:#aaa; font-size:12px;
+}
+.p-coupon-item { display:inline-block;
+    margin: 10px 0; 
+}
+
+.p-coupon-item .coupon-opbtns {
+    float: left; margin-top:10px;
+}
+div.promotion-zyctips .coupon-opbtns .btn-1 {
+    padding: 0 17px;
+}
+
+.btn-1 {
+    background-color: #e74649;
+    background-image: linear-gradient(to top, #e74649 0px, #df3134 100%);
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: none;
+    font-family: arial,"Microsoft YaHei";
+    font-size: 12px;
+    font-weight: 400;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    transition: all 0.2s ease-out 0s;
+    vertical-align: middle;
+}
+.btn-1:hover {
+    background-color: #f05356;
+    background-image: linear-gradient(to top, #f05356 0px, #eb3c3f 100%);
+    color: #fff;
+    text-decoration: none;
+}
+.p-coupon-item .coupon-opbtns a:hover{ color: #fff;}
+.ftx-03{
+    color: #aaa; font-weight:700;
+}
+.p-coupon-item .coupon-opbtns a.ftx-03:hover {
+    color: #c81623;
+}
+
+
+.map-box{  position:relative; width:240px; height:90px; float:right; margin:15px 10px 0px;  }
+.map .icon {
+	display: inline-block;
+	vertical-align: middle;
+	_overflow: hidden;
+}
+.map .container {
+	height: 100%;
+}
+.map .map-zoom {
+	position: absolute;
+	right: 3px;
+	bottom: 6px;
+	width: 44px;
+	height: 32px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	background-color: #fff; border:1px solid #ccc;cursor:pointer
+}
+.map .map-zoom .icon {background: url(../images/sprite.png) no-repeat 0px 0px;
+	width: 17px;
+	height: 17px;
+
+	margin: 7px 0 0 13px; cursor:pointer
+}
+.map .map-zoom:hover .icon { 
+	background-position: 0 -30px;cursor:pointer
+}
+
+/*弹出层*/
+.reveal-modal-bg {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 2000;
+	display: none;
+	top: 0;
+	left: 0;
+	background: rgba(00, 00, 00, 0.5)
+}
+.reveal-modal {
+	visibility: hidden;
+	top: 150px;
+	left: 50%;
+	  position: fixed;
+	width:auto; margin-left: -471.5px;
+	   z-index: 21501;
+	padding: 10px 0 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	background-color: #FFF;
+}
+
+
+	
+.reveal-modal .title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0 20px; color:#333333;
+}
+.reveal-modal.small {
+	width: 200px;
+	margin-left: -140px;
+}
+.reveal-modal.medium {
+	width: 400px;
+	margin-left: -240px;
+}
+.reveal-modal.large {
+	width: 600px;
+	margin-left: -340px;
+}
+.reveal-modal.xlarge {
+	width: 800px;
+	margin-left: -440px;
+}
+.reveal-modal .close-reveal-modal {
+	font-size: 22px;
+	line-height: 0.5;
+	position: absolute;
+	top: 8px;
+	right: 11px;
+	color: #333;
+	text-shadow: 0 -1px 1px rbga(0, 0, 0, .6);
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.reveal-modal .info {
+    border-bottom: 1px solid #ebebeb;
+    line-height: 30px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.reveal-modal .action{height:30px;  }
+.reveal-modal .action .desc { line-height:30px; float:right; margin-right:10px;
+    color: #999;
+
+}
+

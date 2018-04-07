@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="author" content="ShopNC">
+  <meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+  <title>店铺列表</title>
+  <link rel="stylesheet" type="text/css" href="../../css/base.css">
+  <link rel="stylesheet" type="text/css" href="../../css/nctouch_dhome_index.css">
+  <link rel="stylesheet" type="text/css" href="../../css/nctouch_dhome_nav.css">
+</head>
+
+<body>
+<section>
+  <div class="search-store">
+    <div class="search-store-box"><i class="ss1 ss0"></i>
+      <input type="search" style="max-width:90%;" class="ss-input" placeholder="搜索附近的商品和门店">
+    </div>
+  </div>
+  <article class="main-search">
+    <ul class="index-shop-ul" id="chain_list"></ul>
+    <div class="dp-more-shop" style="display: none;">
+      <p><i class="bb"></i>没有更多商家啦<i class="bc"></i></p>
+    </div>
+  </article>
+</section>
+<div class="nav-r-box bothvisible" style="bottom: 117px;">
+  <div class="nav-r">
+     <a class="fl" href="../../dhome.html">首页</a>
+     <a class="yp" href="./category.html">分类</a>
+     <a class="yr" href="../member/order_list.html?chain=1">订单</a>
+     <a class="wd" href="../member/member.html">我的</a>
+     <i class="wds"></i>
+  </div>
+</div>
+<div class="fix-block-box"><a id="goTop" class="fix-block-btn"  href="javascript:void(0);" style="bottom: 23px;"><i></i></a></div>
+<script type="text/html" id="chain_list_tpl">
+  <% var chain_list = datas.chain_list; %>
+  <% chain_len = !chain_list ? 0 : chain_list.length; %>
+  <% if(chain_len > 0){%>
+  <%for(i=0;i<chain_len;i++){%>
+  <li class="dp">
+    <div class="dp-box">
+      <div class="dp-inner"> 
+      	<a class="dp-link" href="./store.html?chain_id=<%=chain_list[i].chain_id%>">
+      	  <span class="clearfix a8o">
+      	  	<img class="d9" src="<%=chain_list[i].chain_img%>">
+      	  </span>
+      	</a>
+        <div class="dp-link-rt"> 
+          <a class="dp-link-rt-a1" href="./store.html?chain_id=<%=chain_list[i].chain_id%>">
+            <div class="dp-title clearfix">
+              <h2 class=""><%=chain_list[i].chain_name%></h2>
+            </div>
+            <span class="dp-txt2">
+              <%=chain_list[i].start_amount_price%>元起送，
+              <%if(chain_list[i].gps >= 1000){%>
+                  距您<%=(chain_list[i].gps/1000.0).toFixed(1) %>km，
+              <%}else{%>
+                  距您<%=chain_list[i].gps%>m，
+              <%}%>
+              <%if(chain_list[i].transport_freight > 0){%>
+                  基础运费<%=chain_list[i].transport_freight%>元
+              <%}else{%>
+                  免配送费
+              <%}%>
+            </span>
+          </a>
+          <div class="dp-link-rtlist">
+          </div>
+          <% goods_list = chain_list[i].goods_list;%>
+          <% g_count = goods_list.length;%>
+          <% if(g_count > 0){ %>
+          <div class="dp-list-wrap">
+            <ul class="dp-list">
+              <% for(var j=0;j<g_count;j++){%>
+              <li class="w2">
+              	<a href="./goods_detail.html?goods_id=<%=goods_list[j].goods_id%>&chain_id=<%=chain_list[i].chain_id%>">
+              	  <img src="<%=goods_list[j].goods_image%>" class="pic">
+                  <p><%=goods_list[j].goods_name%>
+                    <label class="price"><em>￥</em><%=goods_list[j].chain_price%></label>
+                  </p>
+                </a>
+               </li>
+               <% } %>
+            </ul>
+            <div class="moreAll h"><a href="./store.html?chain_id=<%=chain_list[i].chain_id%>" style="color: #47b34f;"><span class="moreFont">查看更多商品</span></a></div>
+          </div>
+          <% }%>
+        </div>
+      </div>
+    </div>
+    <% if(chain_list[i].is_new == 1){ %>
+      <span class="new_store"></span>
+    <% } %>
+  </li>
+  <% } %>
+  <% } %>
+</script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/dhome/uptop.js"></script>
+<script type="text/javascript" src="../../js/tmpl/dhome/store_list.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+  var q = $("body");
+	q.find(".moreFont").length && q.find(".moreFont").bind("click", function() {
+		$(this).parents(".dp-list-wrap").addClass("show02")
+	});
+	q.find(".slideUpFont").length && q.find(".slideUpFont").bind("click", function() {
+		$(this).parents(".dp-list-wrap").removeClass("show02")
+	});
+})
+</script>
+</body>
+</html>

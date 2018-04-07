@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>秒杀活动详情</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="apple-touch-icon" href="images/touch-icon-iphone.png"/>
+<link rel="stylesheet" type="text/css" href="../css/nctouch_spike.css">
+</head>
+<body>
+<header id="header" class="fixed fixed-Width">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>秒杀活动详情</h1>
+    </div>
+    <div class="header-r"><a id="header-nav" href="javascript:void(0);" style="width: 0.95rem; height: 0.95rem; padding: 0.5rem 0.75rem;"><i class="more"></i><sup></sup></a></div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-home-layout">
+	<div class="skill-ban" style="margin-top:1.955rem;">
+		<div class="countdown-time">
+			<span class="static-txt-end">距结束</span>
+			<div class="timeText">
+				<span class="seckill-time" time_id="d">0</span><span class="time-separator">天</span>
+				<span class="seckill-time" time_id="h">0</span><span class="time-separator">时</span>
+				<span class="seckill-time" time_id="m">0</span><span class="time-separator">分</span>
+				<span class="seckill-time" time_id="s">0</span><span class="time-separator">秒</span>
+			</div>
+		</div>
+	</div>
+	<div class="new-skill-wrap">
+	</div>
+</div>
+</body>
+<script type="text/html" id="home_body">
+	<% var goods_list = datas.goods_list; %>
+	<% if(goods_list.length >0){ %>
+	<div id="seckill-body">
+		<div class="skill-hot">
+			<ul class="good-list bdr-b seckilling">
+			<% for(i=0;i<goods_list.length;i++){ %>
+				<li class="bdr-bom">
+					<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+						<div class="skill-pic">
+							<div class="img">
+								<img src="<%=goods_list[i].goods_img_url;%>" style="animation:fade 400ms 0s">
+							</div>
+						</div>
+						<p class="g-title">
+							<%=goods_list[i].goods_name;%>
+						</p>
+						<p class="g-price">
+							<i class="doller">&yen;</i><%=goods_list[i].spike_price;%>
+						</p>
+						<div class="skill-price">
+							<p class="g-price-odd">
+								<del>&yen;<%=goods_list[i].goods_price;%></del>
+							</p>
+							<div class="skill-lod">
+								<span class="sale-count">已秒<em><%=goods_list[i].spike_percent%>%</em></span>
+								<div class="kill-progress">
+									<div class="skill-pro-bg">
+										<p class="skill-iteam-progress">
+											<span class="skill-pro-insetbg"><span class="skill-iteam-pro" style="width:<%=goods_list[i].spike_percent%>%"></span></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>" class="skill-count">去秒杀</a>
+					</a>
+				</li>
+			<% } %>	
+			</ul>
+		</div>
+	</div>
+	<% }else{ %>
+		<div class="nctouch-norecord order">
+			<div class="norecord-ico"><i></i></div>
+			<dl>
+				<dt>暂时没有相关秒杀商品</dt>
+				<dd>可以去看看其它想要买的</dd>
+			</dl>
+			<a href="promotion_spike_list.html" class="btn">返回活动列表</a>
+		</div>
+	<% } %>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/spike_list.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+</html>

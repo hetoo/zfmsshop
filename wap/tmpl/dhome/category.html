@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>商品分类</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_dhome_index.css">
+<style type="text/css">
+  .classify-inner a{ word-wrap: none;display: inline-block; white-space: nowrap;}
+  .classify-inner .cl-txt a{ color: #AAA; font-size: 16px; }
+  .classify-inner .cl-info a{ color: #444; font-size: 13px; }
+</style>
+</head>
+
+<body>
+<section class="nctouch-box" style="margin-bottom: 3rem;">
+  <div class="nctouch-layout">
+    <div class="nctouch-inp"><i class="nctouch-inp-icon nt"></i>
+      <input type="search" style="max-width:90%" class="search-txt" placeholder="搜索附近的商品和门店">
+      <i class="yi v5"></i></div>
+  </div>
+  <ul class="classify-box" id="goods_class_list">
+  </ul>
+  <article class="search-list">
+    <div class="classify-con">
+      <div class="classify-inner" style="min-height:527px"></div>
+    </div>
+  </article>
+</section>
+<footer class="f-box">
+  <a class="index" href="../../dhome.html">首页</a>
+  <a class="classify current" href="./category.html">分类</a>
+  <a class="orderList" href="../member/order_list.html?chain=1">订单</a>
+  <a class="mine" href="../member/member.html">我的</a>
+</footer>
+<script type="text/html" id="category-two">  
+  <% for(var i=0; i<class_list.length; i++) { var col = i % 10;%>
+  <dl class="cl-d">
+    <dt class="cl-txt"><a href="<%= WapSiteUrl %>/tmpl/dhome/store_list.html?cate_id=<%= class_list[i].gc_id %>"><%= class_list[i].gc_name %></a></dt>
+    <dd class="cl-info">
+    <% for(var j=0; j<class_list[i].child.length; j++) { %>
+      <a href="<%= WapSiteUrl %>/tmpl/dhome/store_list.html?cate_id=<%= class_list[i].child[j].gc_id %>"><%= class_list[i].child[j].gc_name %></a>
+    <% } %>
+    </dd>
+  </dl>  
+  <% } %>
+</script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/dhome/category.js"></script>
+</body>
+</html>

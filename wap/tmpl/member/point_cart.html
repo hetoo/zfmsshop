@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>已选择的兑换礼品</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+</head>
+<body>
+<header id="header" class="fixed">
+	<div class="header-wrap">
+		<div class="header-l">
+			<a href="javascript:history.go(-1)">
+				<i class="back"></i>
+			</a>
+		</div>
+		<div class="header-title">
+			<h1>已选择的兑换礼品</h1>
+		</div>
+    	<div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+	</div>
+	  <div class="nctouch-nav-layout">
+	    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+	      <ul>
+	        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+	        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+	        <li><a href="../cart_list.html"><i class="cart"></i>购物车</a><sup></sup></li>
+	        <li><a href="member.html"><i class="member"></i>我的商城</a><sup></sup></li>
+	        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+	      </ul>
+	    </div>
+	  </div>
+</header>
+<div class="nctouch-main-layout">
+  <div id="cart-list-wp"></div>
+</div>
+<footer id="footer" class="bottom"></footer>
+<div class="pre-loading hide">
+  <div class="pre-block">
+    <div class="spinner"><i></i></div>购物车数据读取中...
+  </div>
+</div>
+<script id="cart-list" type="text/html">
+	<% if(cart_list.length >0){%>
+		<% for (var i = 0;i<cart_list.length;i++){%>
+			<div class="nctouch-cart-container">
+				<ul class="nctouch-cart-item">
+					<li pc_id="<%=cart_list[i].pcart_id%>" class="cart-litemw-cnt" style="margin-left: 0;">
+						<div class="goods-pic">
+							<a>
+								<img src="<%=cart_list[i].pgoods_image%>"/>
+							</a>
+						</div>
+						<dl class="goods-info">
+							<dt class="goods-name"> <a> <%=cart_list[i].pgoods_name%> </a></dt>
+							<dd class="goods-type">兑换积分<%=cart_list[i].pgoods_points%></dd>
+						</dl>
+						<div class="goods-del" pc_id="<%=cart_list[i].pcart_id%>"><a href="javascript:void(0);"></a></div>
+						<div class="goods-subtotal"> <span class="goods-price">积分小计<em><%=cart_list[i].pgoods_pointone%></em></span>
+							<div class="value-box">
+								<span class="minus">
+									<a href="javascript:void(0);">&nbsp;</a>
+								</span>
+        						<span>
+									<input type="text" pattern="[0-9]*" readonly class="buy-num buynum" value="<%=cart_list[i].pgoods_choosenum%>"/>
+								</span>
+								<span class="add">
+									<a href="javascript:void(0);">&nbsp;</a>
+								</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div> 
+        <%}%>
+		<% if (check_out === true) {%>
+            <div class="nctouch-cart-bottom">
+				<div class="total">
+                	<dl class="total-money"><dt>所需总积分：</dt><dd><em><%=pgoods_pointall%></em>积分</dd></dl>
+            	</div>
+            	<div class="check-out ok">
+                	<a href="javascript:void(0)">确认兑换</a>
+				</div>
+            </div>
+		<% } else { %>
+			<div class="nctouch-cart-bottom no-login">
+				<div class="cart-nologin-tip">兑换礼品，需先登录商城</div>
+				<div class="cart-nologin-btn"><a href="../tmpl/member/login.html" class="btn">登录</a>
+					<a href="../tmpl/member/register.html" class="btn">注册</a>
+				</div>
+			</div>
+		<% } %>
+    <%}else{%>
+    <div class="nctouch-norecord cart">
+		<div class="norecord-ico"><i></i></div>
+		<dl>
+			<dt>您还没有选择兑换礼品</dt>
+		</dl>
+		<a href="../../tmpl/points_shop.html" class="btn">马上去兑换</a>
+	</div>
+    <%}%>
+</script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/point_cart.js"></script>
+</body>
+</html>

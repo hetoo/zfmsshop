@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>门店详情</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_chain.css">
+<style type="text/css">
+  .s-dialog-btn-wapper a {width: 98%;}
+</style>
+</head>
+<body>
+<header id="header" class="fixed">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>门店详情</h1>
+    </div>
+    <div class="header-r"><a id="header-nav" href="javascript:void(0);" style="width: 0.95rem; height: 0.95rem; padding: 0.5rem 0.75rem;"><i class="more"></i><sup></sup></a></div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车</a><sup></sup></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a><sup></sup></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout" style="overflow:hidden">
+  <div class="nctouch-home-block">
+    <div class="item-pic" id="chain_banner"><a><img src=""></a></div>
+  </div>
+  <div style="background: rgb(255, 255, 255);" class="chain_info">
+  </div>
+  <div style="background: rgb(255, 255, 255);" id="show_voucher">
+    <div class="animation-up detail-item" style="border-top-width: 0.05rem; border-top-style: solid; border-top-color: rgb(238, 238, 238);">
+      <div>
+        <div class="item-name">领券</div>
+        <div class="item-con">
+          <dl>
+            <dt>
+              <ul class="detail-coupon">
+              </ul>
+            </dt>
+          </dl>
+        </div>
+        <a href="javascript:void(0);" class="item-more"></a> </div>
+    </div>
+  </div>
+  <div style="background: rgb(255, 255, 255);">
+    <div class="detail-item" style="border-top-width: 0.05rem; border-top-style: solid; border-top-color: rgb(238, 238, 238);" id="show_map">
+      <div>
+        <div class="item-name">地图</div>
+        <div class="item-con">
+          <dl>
+            <dt><i></i>查看地图</dt>
+          </dl>
+        </div>
+        <a href="javascript:void(0);" class="animation-left item-more"></a> </div>
+    </div>
+  </div>
+  <div class="nctouch-main-layout mt5 mb20">
+    <div id="product_list" class="list">
+    </div>
+  </div>
+</div>
+<div id="main-container" class="nctouch-bottom-mask">
+  <div class="goods-detail-foot">
+    <div class="nctouch-bottom-mask-bg"></div>
+    <div class="nctouch-bottom-mask-block">
+      <div class="nctouch-bottom-mask-top mask-coupons">
+        <div class="nctouch-bottom-mask-close"><i class="closed"></i>优惠券</div>
+      </div>
+      <div class="coupons-options">
+        <h4>可领优惠券</h4>
+        <div class="coupons-content" id="voucher_list">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/html" id="chain_goods_tpl">
+  <% var goods_list = datas.goods_list;%>
+  <% if(goods_list.length >0){%>
+  <ul class="goods-secrch-list">
+  <%for(i=0;i<goods_list.length;i++){%>
+    <li class="goods-item" goods_id="<%=goods_list[i].goods_id%>">
+      <span class="goods-pic">
+        <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id%>">
+          <img src="<%=goods_list[i].goods_image%>">
+        </a> 
+      </span>
+      <dl class="goods-info">
+        <dt class="goods-name"> 
+          <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id%>">
+            <h4><%=goods_list[i].goods_name%></h4>
+            <h6><%=goods_list[i].goods_jingle%></h6>
+          </a> 
+        </dt>
+            <dd class="goods-sale"><span class="goods-price">￥<em><%=goods_list[i].chain_price%></em> </span></dd>
+            <dd class="goods-assist"><span class="goods-sold">销量 <em><%=goods_list[i].goods_salenum%></em> </span>
+            <div class="btn-share J-btn-share buy-now" data-storage="<%=goods_list[i].stock%>"><i>立即购买</i></div>
+        </dd>
+      </dl>
+    </li>
+  <% } %>
+  </ul>
+  <% }else{%>
+  <div class="nctouch-norecord search" style="margin-top: 3.8rem; height: 5.2rem;">
+    <div class="norecord-ico"><i></i></div>
+    <dl>
+      <dt>没有找到任何商品信息</dt>
+    </dl>
+  </div>
+  <% } %>
+</script>
+<script type="text/html" id="chain_voucher_tpl">
+  <% if(voucher_list.length >0){%>
+  <ul style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+  <%for(i=0;i<voucher_list.length;i++){%>
+    <li class="coupons-item" t_id="<%=voucher_list[i].voucher_t_id%>">
+      <a href="javascript:;" class="item">
+        <div class="item-left"><span class="decorate"></span>
+          <div class="price"><b>¥</b><em><%=voucher_list[i].voucher_t_price%></em></div>
+          <div class="condition">满<%=voucher_list[i].voucher_t_limit%>元可用</div>
+        </div>
+        <div class="item-right">
+          <p class="coupons-name"><i><%=voucher_list[i].voucher_t_price%>元优惠券</i></p>
+          <div class="coupons-text"><span class="time">有效期至<%=voucher_list[i].voucher_t_end_date%></span></div>
+          <div class="coupons-text"> <span class="goto-receive">点击领取</span></div>
+        </div>
+      </a> 
+    </li>
+  <% } %>
+  </ul>
+  <% } %>
+</script>
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/swipe.js"></script>
+<script type="text/javascript" src="../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../js/tmpl/chain.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+  $.animationUp({
+    valve: '.animation-up',
+    wrapper: '#main-container',
+    scroll: '',
+    start: function () {
+      $('.goods-detail-foot').addClass('block').removeClass('hide');
+    },
+    close: function () {
+      $('.goods-detail-foot').removeClass('block').addClass('hide');
+    }
+  });
+  $('#show_map').on('click', function(){
+    window.location.href=WapSiteUrl+"/tmpl/chain_map.html?chain_id="+chain_id;
+  });
+</script>

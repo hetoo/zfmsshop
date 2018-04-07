@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <title>大转盘</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="./css/lottery_dial.css">
+<style>
+*{margin:0;padding:0}
+li{list-style:none;}
+.box{margin:20px;overflow:hidden;font-size:14px;}
+.box ul li{line-height:30px;}
+.s-dialog-btn-wapper a {width: 98%;}
+</style>
+</head>
+<body>
+<header id="header" class="fixed fixed-Width">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>大转盘抽奖</h1>
+    </div>
+    <div class="header-r"><a id="header-nav" href="javascript:void(0);" style="width: 0.95rem; height: 0.95rem; padding: 0.5rem 0.75rem;"><i class="more"></i><sup></sup></a></div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="index.html"><i class="home"></i>首页</a></li>
+        <li><a href="tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="tmpl/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="m-ui-dial">
+    <div id="js_pointer" class="pointer">
+        <a class="btn" href="javascript:;"></a>
+    </div> 
+</div>       
+<div class="winner-name">
+  <div class="winner-title">
+    <div class="winner-title-bg"></div>
+    <div class="winner-title-con">获奖名单</div>
+  </div>
+  <div class="winner-inner-tit ">
+    <span class="w-zm">中奖者名单</span><span class="w-zm">奖品信息</span>
+  </div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/config.js"></script> 
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script> 
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/dial.js"></script>
+<script type="text/javascript" src="js/simple-plugin.js"></script> 
+<script type="text/javascript" src="js/lottery_dial.js"></script>
+<script type="text/javascript" src="js/fx.js"></script>
+<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
+
+<script>
+(function($){
+    $.fn.textSlider = function(options){
+    //默认配置
+    var defaults = {
+        speed:40,  //滚动速度,值越大速度越慢
+        line:1     //滚动的行数
+    };
+    
+    var opts = $.extend({}, defaults, options);
+    
+    var $timer;
+    function marquee(obj, _speed){                                              
+        var top = 0;
+        var margintop;
+        $timer = setInterval(function(){            
+            top++;
+            margintop = 0-top;
+            obj.find("ul").animate({
+                marginTop: margintop
+                },0,function(){
+                    var s = Math.abs(parseInt($(this).css("margin-top")));                                
+                    if(s >= 30){
+                        top = 0;
+                        $(this).css("margin-top", 0);   //确保每次都是从0开始，避免抖动
+                        $(this).find("li").slice(0, 1).appendTo($(this));                
+                    }
+                });                        
+        }, _speed);
+    }
+      
+    this.each(function(){            
+        var speed = opts["speed"],line = opts["line"],_this = $(this);
+        var $ul =_this.find("ul");
+        if($ul.height() > _this.height()){            
+            marquee(_this, speed);
+        }
+        
+        //触摸开始
+        _this.on('touchstart', function(ev){
+            ev.preventDefault();
+            clearInterval($timer);
+        });
+        
+        //向上滑动
+        _this.on('swipeup', function(ev){
+            ev.preventDefault();
+            clearInterval($timer);
+            if($ul.height() > _this.height()){    
+               for(i=0;i<opts.line;i++){
+                    $ul.find("li").first().appendTo($ul);
+                   }
+                $ul.css("margin-top",0);
+            }
+        });
+        
+        //向下滑动
+        _this.on('swipedown', function(ev){
+            ev.preventDefault();
+            clearInterval($timer);
+            if($ul.height() > _this.height()){
+              for(i=0;i<opts.line;i++){
+                  $ul.find("li").first().before($ul.find("li").last());    
+                  }                                             
+                $ul.css("margin-top",0);
+            }
+        });
+        
+        //触摸结束
+        _this.on('touchend',function(ev){
+            ev.preventDefault();
+            if($ul.height() > _this.height()){
+              marquee(_this, speed);
+            }
+        });        
+    });
+  }
+})(Zepto);
+</script>
+</html>

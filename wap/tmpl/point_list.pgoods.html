@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1"/>
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>商城触屏版</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/integral.css">
+</head>
+<body>
+<header id="header" class="nctouch-product-header fixed">
+<div class="header-wrap">
+  <div class="header-l">
+    <a href="points_shop.html"><i class="back"></i></a>
+  </div>
+  <div class="header-title">
+    <h1>精选礼品</h1>
+  </div>
+  <div class="header-r">
+    <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+  </div>
+</div>
+<div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车</a><sup></sup></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a><sup></sup></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="integral-part mb20">	
+</div>
+<footer id="footer" class="bottom"></footer>
+</body>
+<script type="text/html" id="pgoods_body">
+  <% var pointsprod_list = datas.pointprod_list; %>
+  <% if(pointsprod_list.length >0){%>
+  <div class="integral-02">
+	<ul class="integral-list">
+      <%for(i=0;i<pointsprod_list.length;i++){%>
+      <li>
+        <a href="points_detial.html?pgoods_id=<%=pointsprod_list[i].pgoods_id%>">
+        <div class="top-content">
+          <img class="fl" src="<%=pointsprod_list[i].pgoods_image%>"/>
+          <div class="fl">
+            <span class="black-word"><strong><%=pointsprod_list[i].pgoods_name%></strong></span>
+            <span class="gray-word line-t" style="margin-top:0.6rem">&yen;<b style="font-weight:normal"><%=pointsprod_list[i].pgoods_price%></b></span>
+            <span class="red-word" style="font-size:0.7rem;margin-top:0.4rem">需<%=pointsprod_list[i].pgoods_points%>积分</span>
+          </div>
+          <% if(pointsprod_list[i].pgoods_limitmgrade > 0){ %>
+          <div class="level-b"><i class="red-word">等级要求</i>&nbsp;<span class="level">Lv.<b><%=pointsprod_list[i].pgoods_limitmgrade%></b></span></div>
+          <% } %>
+        </div>
+        </a>
+      </li>
+      <%}%>
+      <% if (hasmore) {%>
+      <li class="loading"><div class="spinner"><i></i></div>数据读取中...</li>
+      <% } %>
+    </ul>
+	<div class="clear"></div>
+  </div>  
+  <%
+     }else {
+  %>
+    <div class="nctouch-norecord search">
+      <div class="norecord-ico"><i></i></div>
+        <dl>
+          <dt>没有找到任何相关信息</dt>
+        </dl>
+    </div>
+  <%
+     }
+  %>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../js/tmpl/point_list.pgoods.js"></script>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<meta name="author" content="ShopNC">
+<meta name="copyright" content="ShopNC Inc. All Rights Reserved">
+<title>门店代收地址</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<style>
+.nctouch-chain-list { background: #FFF;}
+.nctouch-chain-list li { position: relative; z-index: 1; display: block; border-bottom: solid #EEE 0.05rem;}
+.nctouch-chain-list li i { position: absolute; z-index: 1; top: 0.8rem; left: 0.5rem; display: none; width: 0.7rem; height: 0.7rem; background-image: url(../../images/ok.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%;}
+.nctouch-chain-list li.selected i { display: block;}
+.nctouch-chain-list dl { margin: 0 0 0 0.5rem; padding: 0.5rem 0; color: #666;}
+.nctouch-chain-list li.selected dl { margin-left: 1.8rem}
+.nctouch-chain-list dt { display: block; height: 0.9rem; margin-bottom: 0.2rem; font-size: 0.6rem; line-height: 0.9rem;}
+.nctouch-chain-list dt span { margin-right: 0.3rem; font-size: 0.7rem; color: #111;}
+.nctouch-chain-list dt span:last-child { font-weight: 600;}
+.nctouch-chain-list dt sub { display: inline-block; background-color: #DB4453; font-size: 0.45rem; line-height: 0.6rem; padding: 0 0.1rem; margin-left: 0.1rem; border-radius: 0.1rem; color: #FFF;}
+.nctouch-chain-list dd { display: block; min-height: 0.7rem; max-height: 1.4rem; font-size: 0.55rem; line-height: 0.7rem;}
+
+</style>
+</head>
+<body>
+<header id="header">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>门店代收地址</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="save"></i></a> </div>
+  </div>
+</header>
+<div class="nctouch-main-layout">
+  <form>
+    <div class="nctouch-inp-con">
+      <ul class="form-box">
+        <li class="form-item">
+          <h4>收货人姓名</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));"/>
+            <span class="input-del"></span> </div>
+        </li>
+        <li class="form-item">
+          <h4>联系手机</h4>
+          <div class="input-box">
+            <input type="tel" class="inp" maxlength="11" name="mob_phone" id="mob_phone" autocomplete="off" oninput="writeClear($(this));"/>
+            <span class="input-del"></span> </div>
+        </li>
+        <li class="form-item">
+          <h4>地区选择</h4>
+          <div class="input-box">
+            <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" readonly/>
+          </div>
+        </li>
+        <li class="form-item">
+          <h4>门店信息</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="address" id="address" autocomplete="off" readonly>
+            <span class="input-del"></span> </div>
+        </li>
+        <li>
+          <h4>默认地址</h4>
+          <div class="input-box">
+            <label>
+              <input type="checkbox" class="checkbox" name="is_default" id="is_default" value="1" />
+              <span class="power"><i></i></span> </label>
+          </div>
+        </li>
+      </ul>
+      <div class="error-tips"></div>
+      <div class="form-btn ok"><a class="btn" href="javascript:;">保存地址</a></div>
+    </div>
+  </form>
+  <div id="address-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>门店选择</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout" style="display: block; position: absolute; top: 0; right: 0; left: 0; overflow: hidden; z-index: 1;" id="list-chain-scroll">
+        <ul class="nctouch-chain-list" id="chain-list">
+          <li>
+          <dl>
+            <dt>选择地区后才能查询门店信息</dt>
+          </dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/html" id="list-chain-script">
+<%if(chain_list.length>0){%>
+<% for (var i=0; i<chain_list.length; i++) { %>
+<li address_k="<%=i%>" chain_id="<%=chain_list[i].chain_id%>" <% if (i==0) {%>class="selected"<% } %>> <i></i>
+  <dl>
+    <dt>门店名称：<span><%=chain_list[i].chain_name%></span> ，电话：<%=chain_list[i].chain_phone %></dt>
+    <dd>地址：<span><%=chain_list[i].chain_address %></span> ，代收费用：<span><%=chain_list[i].collection_price %></span></dd>
+  </dl>
+</li>
+<% } %>
+<%}else{%>
+<li>
+  <dl>
+    <dt>所选择地区没有提供代收服务的门店</dt>
+  </dl>
+</li>
+<% } %>
+</script> 
+<footer id="footer" class="bottom"></footer>
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/address_chain.js"></script>
+</body>
+</html>
